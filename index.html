@@ -29,8 +29,9 @@
       background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
       color: var(--dark);
       line-height: 1.6;
-      padding: 20px;
+      padding: 15px;
       min-height: 100vh;
+      font-size: 16px;
     }
     
     .container {
@@ -40,12 +41,12 @@
     
     header {
       text-align: center;
-      padding: 25px;
+      padding: 20px 15px;
       background: linear-gradient(to right, var(--primary), var(--secondary));
       color: white;
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       position: relative;
       overflow: hidden;
     }
@@ -63,36 +64,45 @@
     
     header h1 {
       margin: 0;
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       letter-spacing: 1px;
       position: relative;
     }
     
     header p {
       margin: 10px 0 0;
-      font-size: 1.1rem;
+      font-size: 1rem;
       opacity: 0.9;
       position: relative;
     }
     
     .main-content {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
+      grid-template-columns: 1fr;
+      gap: 20px;
     }
     
-    @media (max-width: 900px) {
+    @media (min-width: 768px) {
       .main-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+      }
+      
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      header p {
+        font-size: 1.1rem;
       }
     }
     
     .card {
       background: white;
-      padding: 25px;
+      padding: 20px;
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       transition: var(--transition);
     }
     
@@ -102,8 +112,8 @@
     }
     
     .card-title {
-      font-size: 1.4rem;
-      margin-bottom: 20px;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
       color: var(--secondary);
       display: flex;
       align-items: center;
@@ -111,11 +121,11 @@
     }
     
     .card-title i {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
     
     .input-group {
-      margin-bottom: 18px;
+      margin-bottom: 15px;
     }
     
     .input-group label {
@@ -123,15 +133,19 @@
       margin-bottom: 8px;
       font-weight: 600;
       color: var(--dark);
+      font-size: 0.95rem;
     }
     
     .input-group input, .input-group select {
       width: 100%;
-      padding: 12px 15px;
+      padding: 14px 15px;
       border: 2px solid #e2e8f0;
       border-radius: 8px;
       font-size: 1rem;
       transition: var(--transition);
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
     }
     
     .input-group input:focus, .input-group select:focus {
@@ -142,7 +156,14 @@
     
     .input-row {
       display: flex;
+      flex-direction: column;
       gap: 15px;
+    }
+    
+    @media (min-width: 480px) {
+      .input-row {
+        flex-direction: row;
+      }
     }
     
     .input-row .input-group {
@@ -153,18 +174,22 @@
       overflow-x: auto;
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
+      margin-bottom: 15px;
+      -webkit-overflow-scrolling: touch;
     }
     
     table {
       width: 100%;
       border-collapse: collapse;
       background: white;
+      min-width: 500px;
     }
     
     th, td {
-      padding: 15px;
+      padding: 12px 10px;
       text-align: center;
       border-bottom: 1px solid #e2e8f0;
+      font-size: 0.95rem;
     }
     
     th {
@@ -173,6 +198,7 @@
       font-weight: 600;
       position: sticky;
       top: 0;
+      font-size: 0.9rem;
     }
     
     tr:nth-child(even) {
@@ -185,14 +211,21 @@
     
     .action-buttons {
       display: flex;
-      gap: 15px;
-      margin-top: 20px;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 15px;
+    }
+    
+    @media (min-width: 480px) {
+      .action-buttons {
+        flex-direction: row;
+      }
     }
     
     button {
       background: var(--primary);
       color: white;
-      padding: 14px 25px;
+      padding: 14px 20px;
       border: none;
       cursor: pointer;
       border-radius: 8px;
@@ -200,10 +233,11 @@
       font-weight: 600;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       transition: var(--transition);
       flex: 1;
-      justify-content: center;
+      min-height: 50px;
     }
     
     button:hover {
@@ -223,25 +257,32 @@
     
     #result {
       text-align: center;
-      padding: 25px;
+      padding: 20px;
       background: white;
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
-      margin-top: 25px;
+      margin-top: 20px;
     }
     
     .result-box {
       display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 20px;
+      flex-direction: column;
+      gap: 15px;
       margin-top: 15px;
+    }
+    
+    @media (min-width: 600px) {
+      .result-box {
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
     }
     
     .result-item {
       flex: 1;
       min-width: 200px;
-      padding: 20px;
+      padding: 18px;
       border-radius: var(--border-radius);
       background: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
       color: white;
@@ -249,20 +290,20 @@
     }
     
     .result-item h3 {
-      font-size: 1rem;
-      margin-bottom: 10px;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
       opacity: 0.9;
     }
     
     .result-item p {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 700;
     }
     
     footer {
-      margin-top: 40px;
+      margin-top: 30px;
       text-align: center;
-      padding: 25px;
+      padding: 20px;
       background: white;
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
@@ -271,7 +312,7 @@
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
       margin-top: 15px;
     }
     
@@ -300,8 +341,9 @@
     }
     
     .course-actions button {
-      padding: 8px 12px;
+      padding: 10px 12px;
       font-size: 0.9rem;
+      min-height: auto;
     }
     
     /* Toast notification */
@@ -309,6 +351,7 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
+      left: 20px;
       padding: 15px 20px;
       background: var(--success);
       color: white;
@@ -316,11 +359,23 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
       transform: translateY(100px);
       opacity: 0;
       transition: all 0.3s ease;
       z-index: 1000;
+      text-align: center;
+    }
+    
+    @media (min-width: 480px) {
+      .toast {
+        left: auto;
+        right: 20px;
+        width: auto;
+        max-width: 350px;
+        justify-content: flex-start;
+      }
     }
     
     .toast.show {
@@ -359,6 +414,52 @@
     .tooltip:hover .tooltip-text {
       visibility: visible;
       opacity: 1;
+    }
+    
+    /* Mobile specific styles */
+    @media (max-width: 767px) {
+      body {
+        padding: 10px;
+        font-size: 15px;
+      }
+      
+      .card {
+        padding: 15px;
+      }
+      
+      th, td {
+        padding: 10px 8px;
+      }
+      
+      .result-item {
+        min-width: 100%;
+      }
+      
+      .result-item p {
+        font-size: 1.6rem;
+      }
+    }
+    
+    /* Very small devices */
+    @media (max-width: 360px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+      
+      .card-title {
+        font-size: 1.2rem;
+      }
+      
+      button {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+      }
+      
+      .social-links a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
@@ -431,7 +532,7 @@
       </div>
     </div>
 
-    <div class="action-buttons" style="max-width: 400px; margin: 30px auto;">
+    <div class="action-buttons" style="max-width: 400px; margin: 25px auto;">
       <button id="calculateBtn"><i class="fas fa-calculator"></i> Calculate GPA</button>
       <button id="saveBtn" class="secondary"><i class="fas fa-download"></i> Save Results</button>
     </div>
@@ -462,7 +563,6 @@
         <a href="https://instagram.com/salman_utasa" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://twitter.com/salman_utasa" target="_blank"><i class="fab fa-twitter"></i></a>
         <a href="https://www.youtube.com/@SALMAN_UTASA/playlists" target="_blank"><i class="fab fa-youtube"></i></a>
-      
       </div>
     </footer>
   </div>
