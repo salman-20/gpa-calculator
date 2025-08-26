@@ -34,7 +34,7 @@
     }
     
     .container {
-      max-width: 1200px;
+      max-width: 800px;
       margin: 0 auto;
     }
     
@@ -76,8 +76,8 @@
     }
     
     .main-content {
-      display: grid;
-      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
       gap: 20px;
     }
     
@@ -86,7 +86,6 @@
       padding: 20px 15px;
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
-      margin-bottom: 20px;
       transition: var(--transition);
     }
     
@@ -395,43 +394,6 @@
       visibility: visible;
       opacity: 1;
     }
-    
-    /* Mobile menu for small screens */
-    .mobile-menu {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 15px;
-    }
-    
-    @media (min-width: 901px) {
-      .main-content {
-        grid-template-columns: 1fr 1fr;
-      }
-      
-      header h1 {
-        font-size: 2.2rem;
-      }
-      
-      header p {
-        font-size: 1.1rem;
-      }
-      
-      .card {
-        padding: 25px;
-      }
-      
-      .card-title {
-        font-size: 1.4rem;
-      }
-      
-      .result-item {
-        padding: 20px;
-      }
-      
-      .result-item p {
-        font-size: 2rem;
-      }
-    }
   </style>
 </head>
 <body>
@@ -442,63 +404,59 @@
     </header>
 
     <div class="main-content">
-      <div class="left-column">
-        <div class="card">
-          <h2 class="card-title"><i class="fas fa-history"></i> Previous Academic Record</h2>
-          <div class="input-row">
-            <div class="input-group">
-              <label for="oldGPA">Cumulative GPA</label>
-              <input type="number" id="oldGPA" step="0.01" min="0" max="4" placeholder="e.g., 3.25">
-            </div>
-            <div class="input-group">
-              <label for="oldCredits">Total Completed Credits</label>
-              <input type="number" id="oldCredits" min="0" placeholder="e.g., 45">
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2 class="card-title"><i class="fas fa-cog"></i> Calculator Settings</h2>
+      <div class="card">
+        <h2 class="card-title"><i class="fas fa-history"></i> Previous Academic Record</h2>
+        <div class="input-row">
           <div class="input-group">
-            <label for="gradingScale">Grading Scale</label>
-            <select id="gradingScale">
-              <option value="standard">Standard (A-F)</option>
-              <option value="a_plus">With A+ (4.3 scale)</option>
-              <option value="uk">UK System</option>
-            </select>
+            <label for="oldGPA">Cumulative GPA</label>
+            <input type="number" id="oldGPA" step="0.01" min="0" max="4" placeholder="e.g., 3.25">
           </div>
           <div class="input-group">
-            <label for="creditSystem">Credit System</label>
-            <select id="creditSystem">
-              <option value="us">US Credits</option>
-              <option value="eu">European ECTS</option>
-            </select>
+            <label for="oldCredits">Total Completed Credits</label>
+            <input type="number" id="oldCredits" min="0" placeholder="e.g., 45">
           </div>
         </div>
       </div>
 
-      <div class="right-column">
-        <div class="card">
-          <h2 class="card-title"><i class="fas fa-book"></i> Current Semester Courses</h2>
-          <div class="table-container">
-            <table id="coursesTable">
-              <thead>
-                <tr>
-                  <th>Course</th>
-                  <th>Grade</th>
-                  <th>Credits</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Rows will be generated dynamically -->
-              </tbody>
-            </table>
-          </div>
-          <div class="action-buttons">
-            <button id="addCourseBtn" class="secondary"><i class="fas fa-plus"></i> Add Course</button>
-            <button id="resetCoursesBtn" class="secondary"><i class="fas fa-trash-alt"></i> Reset All</button>
-          </div>
+      <div class="card">
+        <h2 class="card-title"><i class="fas fa-cog"></i> Calculator Settings</h2>
+        <div class="input-group">
+          <label for="gradingScale">Grading Scale</label>
+          <select id="gradingScale">
+            <option value="standard">Standard (A-F)</option>
+            <option value="a_plus">With A+ (4.3 scale)</option>
+            <option value="uk">UK System</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="creditSystem">Credit System</label>
+          <select id="creditSystem">
+            <option value="us">US Credits</option>
+            <option value="eu">European ECTS</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card-title"><i class="fas fa-book"></i> Current Semester Courses</h2>
+        <div class="table-container">
+          <table id="coursesTable">
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Grade</th>
+                <th>Credits</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Rows will be generated dynamically -->
+            </tbody>
+          </table>
+        </div>
+        <div class="action-buttons">
+          <button id="addCourseBtn" class="secondary"><i class="fas fa-plus"></i> Add Course</button>
+          <button id="resetCoursesBtn" class="secondary"><i class="fas fa-trash-alt"></i> Reset All</button>
         </div>
       </div>
     </div>
